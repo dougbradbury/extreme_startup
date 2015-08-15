@@ -40,7 +40,7 @@ Feature: Basic Scoring
       And the game is played for 1 second
       Then the scores should be:
         | player   | score |
-        | ernie    | -50   |
+        | ernie    | -500  |
 
   Scenario: Player returns a "not found"
     Given a player "doug" who plays like this:

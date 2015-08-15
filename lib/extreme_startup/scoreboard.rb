@@ -64,9 +64,9 @@ module ExtremeStartup
       case question.result
         when "correct"        then question.points
         when "wrong"          then @lenient ? allow_passes(question, leaderboard_position) : penalty(question, leaderboard_position)
-        when "error_response" then -50
+        when "error_response" then -500
         when "not_found"      then 0
-        when "no_server_response"     then -20
+        when "no_server_response"     then -100
         else puts "!!!!! unrecognized result '#{question.result}' from #{question.inspect} in Scoreboard#score"
       end
     end

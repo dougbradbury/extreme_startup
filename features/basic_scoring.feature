@@ -13,7 +13,7 @@ Feature: Basic Scoring
      Then the scores should be:
        | player   | score |
        | bob      | 10    |
-       
+
     Scenario: Player is wrong
       Given a player "charlie" who plays like this:
         """
@@ -27,7 +27,7 @@ Feature: Basic Scoring
       Then the scores should be:
         | player   | score |
         | charlie  | -10   |
-        
+
     Scenario: Player causes error
       Given a player "ernie" who plays like this:
         """
@@ -40,4 +40,18 @@ Feature: Basic Scoring
       And the game is played for 1 second
       Then the scores should be:
         | player   | score |
-        | ernie    | -50    |
+        | ernie    | -50   |
+
+  Scenario: Player returns a "not found"
+    Given a player "doug" who plays like this:
+      """
+        get '/' do
+          status 404
+          "I don't know"
+        end
+      """
+      When the player is entered
+      And the game is played for 1 second
+      Then the scores should be:
+        | player   | score |
+        | doug     | 0     |

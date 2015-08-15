@@ -17,6 +17,8 @@ module ExtremeStartup
         response = get(url)
         if (response.success?) then
           self.answer = response.to_s
+        elsif response.code == 404
+          @problem = "not_found"
         else
           @problem = "error_response"
         end
@@ -47,11 +49,11 @@ module ExtremeStartup
         else 20
       end
     end
-    
+
     def was_answered_correctly
       result == "correct"
     end
-    
+
     def was_answered_wrongly
       result == "wrong"
     end
@@ -288,7 +290,7 @@ module ExtremeStartup
       if (n > 20 && n % 10 == 2)
         return "what is the #{n}nd number in the Fibonacci sequence"
       end
-      return "what is the #{n}th number in the Fibonacci sequence"  
+      return "what is the #{n}th number in the Fibonacci sequence"
     end
     def points
       50

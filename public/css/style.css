@@ -16,6 +16,7 @@ li { display: block; }
 .logline.wrong {background-color:#ffaa00}
 .logline.no_server_response {background-color:#ff4500}
 .logline.error_response {background-color:#ff4500}
+.logline.not_found {background-color:#DDD}
 
 .ranking {margin:2px; padding:3px; display:inline-block; background-color:#eed5b7}
 .ranking.name {width:200}
